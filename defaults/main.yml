@@ -1,0 +1,16 @@
+---
+artifactory_home_dir_host: '/home/arjunkanniah/artifactory_home'
+artifactory_home_dir_container: '/var/opt/jfrog/artifactory'
+
+artifactory_user_id: '1000'
+artifactory_group_id: '1000'
+
+jfrog_artifactory_registry: 'docker.bintray.io/jfrog'
+artifactory_image_name: 'artifactory-oss'
+artifactory_image_tag: 'latest'
+
+
+artifactory_instance_name: 'artifactory_oss'
+artifactory_host_port: '8081'
+
+artifactory_java_options: '-Xms512m -Xmx2g -Xss256k -XX:+UseG1GC'

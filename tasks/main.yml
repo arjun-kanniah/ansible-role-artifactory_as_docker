@@ -1,0 +1,21 @@
+---
+- name: Ensure Artifactory Home Directory on Docker Host
+  file:
+    path: "{{ artifactory_home_dir_host }}"
+    state: directory
+    owner: "{{ artifactory_user_id }}"
+    group: "{{ artifactory_group_id }}"
+
+- name: "Run the artifactory-oss Container on Port {{ artifactory_host_port }}"
+  docker_container:
+    name: "{{ artifactory_instance_name }}"
+    image: "{{ jfrog_artifactory_registry }}/{{ artifactory_image_name }}:{{ artifactory_image_tag }}"
+    pull: yes
+    ports:
+      - "{{ artifactory_host_port }}:8081"
+    volumes:
+      - "{{ artifactory_home_dir_host }}:{{ artifactory_home_dir_container }}"
+    env:
+      EXTRA_JAVA_OPTIONS: "{{ artifactory_java_options }}"
+    state: started
+    restart_policy: unless-stopped
