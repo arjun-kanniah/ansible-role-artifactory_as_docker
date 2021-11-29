@@ -13,6 +13,7 @@
     pull: yes
     ports:
       - "{{ artifactory_host_port }}:8081"
+      - "{{ artifactory_host_ui_port }}:8082"
     volumes:
       - "{{ artifactory_home_dir_host }}:{{ artifactory_home_dir_container }}"
     env:
