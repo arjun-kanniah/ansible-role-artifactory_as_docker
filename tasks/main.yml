@@ -19,4 +19,4 @@
     env:
       EXTRA_JAVA_OPTIONS: "{{ artifactory_java_options }}"
     state: started
-    restart_policy: unless-stopped
+    restart_policy: always
